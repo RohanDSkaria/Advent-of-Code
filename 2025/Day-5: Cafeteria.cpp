@@ -28,9 +28,8 @@ void solve(){
         else break;
     }
     sort(a.begin(),a.end());
-    a.push_back({LLONG_MAX,0});
-    int l=a[0].first,r=a[0].second;
-    for(int i=1; i<a.size(); i++){
+    int l=-1,r=-2;
+    for(int i=0; i<a.size(); i++){
         if(a[i].first>r){
             ans+=r-l+1;
             l=a[i].first;
@@ -38,7 +37,7 @@ void solve(){
         }
         else r=max(r,a[i].second);
     }
-    cout<<ans<<'\n';
+    cout<<ans+r-l+1<<'\n';
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
